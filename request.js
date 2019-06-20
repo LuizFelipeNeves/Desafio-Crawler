@@ -13,17 +13,15 @@ const baseRequest = rp.defaults({
 
 const base = "http://applicant-test.us-east-1.elasticbeanstalk.com/";
 
-const options = (token) => {
-    return {
-      url: base,
-      method: "POST",
-      form: { token },
-      headers: {
-        Referer: base,
-        Origin: base
-      }
-    }
-} 
+const options = (token) => ({
+    url: base,
+    method: "POST",
+    form: { token },
+    headers: {
+    Referer: base,
+    Origin: base
+  }
+});
 
 const PrimReq = async () => await baseRequest(base);
 const SecReq = async (token) => await baseRequest(options(token));
